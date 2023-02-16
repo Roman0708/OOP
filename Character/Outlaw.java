@@ -1,6 +1,11 @@
 package Character;
 
-public class Outlaw extends Base_unit {
-    
+public class Outlaw extends MeleeUnit {
+
+    public Outlaw (){
+
+        super.team = false;
+        
+    }
     
 }

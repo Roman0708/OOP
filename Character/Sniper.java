@@ -10,6 +10,7 @@ public class Sniper extends RangeUnit {
         damageModifyer = 30;
         ammoOut = 10;
         super.armor = 5;
+        super.team = true;
 
     }
     

@@ -1,4 +1,9 @@
+import Character.Crossbowman;
+import Character.Magician;
+import Character.Outlaw;
+import Character.Priest;
 import Character.Sniper;
+import Character.Spearman;
 import Character.Villager;
 
 public class Main {
@@ -12,6 +17,15 @@ public class Main {
         sniper2.move(20);
         System.out.println(String.format("Current sniper's position: %d, current sniper's stamina: %d", sniper2.getPosition(), sniper2.getStamina()));
         
+        Crossbowman crossbowman = new Crossbowman();
+
+        Priest priest = new Priest();
+
+        Magician magician = new Magician();
+
+        Spearman spearman = new Spearman();
+
+        Outlaw outlaw = new Outlaw();
     }
     
 }

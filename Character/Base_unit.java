@@ -2,8 +2,10 @@ package Character;
 
 public class Base_unit {
     protected int hp, maxHP, level, currentStamina, maxStamina, inventoryVolume, maxInventoryVolume, armor, damage;
-    protected boolean team;
-    protected int position;
+
+    protected boolean team;                 //Через булевое значение реализована принадлежность к сторонам конфликта
+    
+    protected int position;                 //Юниты размещаются на одной числовой прямой
 
 
     public Base_unit(int maxHpValue, int levelValue, int staminaValue, boolean teamValue, int maxinventoryVolumeValue,
@@ -57,6 +59,8 @@ public class Base_unit {
         else System.out.println("Not enough stamina");
     }
     
-
+    // public void getDamage(int damage) {  
+    //     Base_unit.hp -= damage;             //Что-то не работает, пока разбираюсь
+    // }
 
 }

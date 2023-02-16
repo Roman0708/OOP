@@ -10,9 +10,9 @@ public class RangeUnit extends UnitWithAmmo {
         int distance = Math.abs(name.getPosition() - this.getPosition());
         super.currentStamina -= this.ammoOut*armor/super.level;
         if (distance > this.rangeAttack) {
-            int damage = this.damage + (this.damageModifyer / distance);
+            int damageGiven = super.damage + (this.damageModifyer / distance);
             super.spendAmmo(this.ammoOut);
-            return damage;
+            return damageGiven;
         }
         else return 0;
     }
