@@ -14,4 +14,9 @@ public class Sniper extends RangeUnit {
 
     }
     
+    @Override
+    public String getInfo() {
+        return ("Я снайпер " + super.getName());
+    }
+
 }

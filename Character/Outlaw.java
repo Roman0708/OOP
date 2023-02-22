@@ -7,5 +7,10 @@ public class Outlaw extends MeleeUnit {
         super.team = false;
         
     }
-    
+
+    @Override
+    public String getInfo() {
+        return ("Я разбойник " + super.getName());
+    }
+
 }

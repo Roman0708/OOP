@@ -13,4 +13,9 @@ public class Villager extends UnitWithAmmo {
         else return false;
      }
 
+     @Override
+    public String getInfo() {
+        return ("Я крестьянин " + super.getName());
+    }
+
 }

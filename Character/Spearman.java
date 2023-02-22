@@ -6,5 +6,11 @@ public class Spearman extends MeleeUnit {
         super.team = true;
         
     }
+
+    @Override
+    public String getInfo() {
+        return ("Я копейщик " + super.getName());
+    }
+
     
 }

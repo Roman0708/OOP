@@ -1,7 +1,14 @@
 package Character;
+import java.util.Random;
 
-public class MagicUnit extends Base_unit {
+import Character.Names.MagicNick;
+
+public abstract class MagicUnit extends Base_unit {
     protected int currentMana, maxMana, healCost, healPower;
+
+    public MagicUnit() {
+        super.name += " " + this.getMagicNick();
+    }
 
 
     // Amount of heal equal to -damage, so it will be used in getDamage
@@ -12,4 +19,9 @@ public class MagicUnit extends Base_unit {
         }
         else return -this.healPower;
     }
+
+    public String getMagicNick() {
+        return String.valueOf(MagicNick.values()[new Random().nextInt(MagicNick.values().length-1)]);
+    }
+
 }

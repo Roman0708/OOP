@@ -7,4 +7,10 @@ public class Magician extends MagicUnit {
         super.team = false;
 
     }
+
+    @Override
+    public String getInfo() {
+        return ("Я колдун " + super.getName());
+    }
+
 }

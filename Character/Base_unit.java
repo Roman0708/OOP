@@ -1,16 +1,22 @@
 package Character;
+import java.util.Random;
 
-public class Base_unit {
+import Character.Names.Names;
+
+public abstract class Base_unit implements Interface{
+
+    protected String name;
+
     protected int hp, maxHP, level, currentStamina, maxStamina, inventoryVolume, maxInventoryVolume, armor, damage;
 
     protected boolean team;                 //Через булевое значение реализована принадлежность к сторонам конфликта
-    
+
     protected int position;                 //Юниты размещаются на одной числовой прямой
 
-
     public Base_unit(int maxHpValue, int levelValue, int staminaValue, boolean teamValue, int maxinventoryVolumeValue,
-    int armorValue, int damageValue, int positionValue) {
+    int armorValue, int damageValue, int positionValue, String unitname) {
         maxHP = maxHpValue;
+        this.hp = maxHpValue;
         level = levelValue;
         currentStamina = staminaValue;
         team = teamValue;
@@ -19,19 +25,23 @@ public class Base_unit {
         armor = armorValue;
         damage = damageValue;
         position = positionValue;
+        name = unitname;
+    }
+
+    public Base_unit(String name) {
+        this(100, 1, 100, true, 100, 0, 0, 0,"");
     }
 
     public Base_unit() {
-        maxHP = 100;
-        hp = maxHP;
-        level = 1;
-        currentStamina = 100;
-        team = true;
-        maxInventoryVolume = 100;
-        inventoryVolume = 0;
-        armor = 0;
-        damage = 0;
-        position = 0;
+        name = createName();
+    }
+
+    public String createName() {
+        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public int getHP() {
@@ -59,8 +69,15 @@ public class Base_unit {
         else System.out.println("Not enough stamina");
     }
     
-    // public void getDamage(int damage) {  
-    //     Base_unit.hp -= damage;             //Что-то не работает, пока разбираюсь
-    // }
+    public void getDamage(int damage) {  
+        this.hp -= damage;
+    }
+
+    @Override
+    public void step() {};
+
+    @Override
+    public String getInfo() {
+        return "";};
 
 }

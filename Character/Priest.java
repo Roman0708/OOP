@@ -6,4 +6,10 @@ public class Priest extends MagicUnit {
 
         super.team = true;
     }
+
+    @Override
+    public String getInfo() {
+        return ("Я священник " + super.getName());
+    }
+
 }

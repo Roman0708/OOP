@@ -14,4 +14,9 @@ public class Crossbowman extends RangeUnit {
 
     }
 
+    @Override
+    public String getInfo() {
+        return ("Я арбалетчик " + super.getName());
+    }
+
 }

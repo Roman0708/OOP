@@ -1,6 +1,6 @@
 package Character;
 
-public class UnitWithAmmo extends Base_unit {
+public abstract class UnitWithAmmo extends Base_unit {
     protected int ammo;     //Villager brings ammo to range units
                             //Range units spend ammo
     
