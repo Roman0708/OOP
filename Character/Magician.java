@@ -5,6 +5,8 @@ public class Magician extends MagicUnit {
     public Magician() {
 
         super.team = false;
+        super.speed = 9;
+        super.unitType = "Колдун";
 
     }
 

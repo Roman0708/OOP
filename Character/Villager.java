@@ -6,8 +6,18 @@ public class Villager extends UnitWithAmmo {
 
      }
 
+     public Villager() {
+        super.speed = 3;
+        super.unitType = "Крестьянин";
+     }
+
+    public Villager(boolean teamValue) {
+        this();
+        team = teamValue;
+    }
+
      public boolean pickAmmoOnBase() {
-        if (super.getPosition() == 0 & super.takeAmmo(50) == true) {        //Villager can pick ammo on base
+        if (super.getPositionX() == 0 & super.getPositionY() == 0 & super.takeAmmo(50) == true) {        //Villager can pick ammo on base
             return true;
         }
         else return false;

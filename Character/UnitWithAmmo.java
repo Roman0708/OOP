@@ -8,6 +8,11 @@ public abstract class UnitWithAmmo extends Base_unit {
         this.ammo = 0;
     }
 
+    public UnitWithAmmo(boolean teamValue) {
+        this();
+        team = teamValue;
+    }
+
     public int getAmmo() {
         return this.ammo;
     }

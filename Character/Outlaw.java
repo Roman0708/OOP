@@ -2,10 +2,12 @@ package Character;
 
 public class Outlaw extends MeleeUnit {
 
-    public Outlaw (){
+    public Outlaw() {
 
         super.team = false;
-        
+        super.speed = 6;
+        super.unitType = "Разбойник";
+
     }
 
     @Override

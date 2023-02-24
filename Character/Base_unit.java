@@ -1,20 +1,21 @@
 package Character;
+
 import java.util.Random;
 
 import Character.Names.Names;
 
-public abstract class Base_unit implements Interface{
+public abstract class Base_unit implements Interface {
 
-    protected String name;
+    protected String name, unitType;
 
-    protected int hp, maxHP, level, currentStamina, maxStamina, inventoryVolume, maxInventoryVolume, armor, damage;
+    protected int hp, maxHP, level, currentStamina, maxStamina, inventoryVolume, maxInventoryVolume, armor, damage, speed;
 
     protected boolean team;                 //Через булевое значение реализована принадлежность к сторонам конфликта
 
-    protected int position;                 //Юниты размещаются на одной числовой прямой
+    protected int positionX, positionY;
 
     public Base_unit(int maxHpValue, int levelValue, int staminaValue, boolean teamValue, int maxinventoryVolumeValue,
-    int armorValue, int damageValue, int positionValue, String unitname) {
+    int armorValue, int damageValue, int positionXValue, int positionYValue, String unitname, int speedValue) {
         maxHP = maxHpValue;
         this.hp = maxHpValue;
         level = levelValue;
@@ -24,12 +25,19 @@ public abstract class Base_unit implements Interface{
         inventoryVolume = maxInventoryVolume;
         armor = armorValue;
         damage = damageValue;
-        position = positionValue;
+        positionX = positionXValue;
+        positionY = positionYValue;
         name = unitname;
+        speed = speedValue;
     }
 
     public Base_unit(String name) {
-        this(100, 1, 100, true, 100, 0, 0, 0,"");
+        this(100, 1, 100, true, 100, 0, 0, 0, 0,"",1);
+    }
+
+    public Base_unit(boolean teamValue) {
+        this();
+        team = teamValue;
     }
 
     public Base_unit() {
@@ -52,8 +60,12 @@ public abstract class Base_unit implements Interface{
         return this.level;
     }
 
-    public int getPosition() {
-        return this.position;
+    public int getPositionX() {
+        return this.positionX;
+    }
+
+    public int getPositionY() {
+        return this.positionY;
     }
 
     public int getStamina() {
@@ -63,7 +75,7 @@ public abstract class Base_unit implements Interface{
     public void move(int distance) {
         int staminaRequired = distance*this.armor;
         if (this.currentStamina >= staminaRequired) {
-            this.position += staminaRequired;
+            // this.position += staminaRequired;
             this.currentStamina -= staminaRequired;
         }
         else System.out.println("Not enough stamina");
@@ -73,11 +85,20 @@ public abstract class Base_unit implements Interface{
         this.hp -= damage;
     }
 
+    public void fullInfo() {
+        // int col1Width = 15-this.unitType.length();
+        System.out.println(this.unitType + " | " + this.getName() + " | " + this.damage + " | " + this.speed + " | " + this.hp + " | " + this.team);
+    }
+
     @Override
     public void step() {};
 
     @Override
     public String getInfo() {
-        return "";};
+        return "";}
+
+    public int getSpeed() {
+        return this.speed;
+    };
 
 }
