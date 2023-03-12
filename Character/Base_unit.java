@@ -20,14 +20,14 @@ public abstract class Base_unit implements Interface {
     public String state;
 
     public Base_unit(int maxHpValue, boolean teamValue, int armorValue, int minDamageValue, int maxDamageValue, 
-                    String unitname, int speedValue, int attackValue, int posX, int posY) {
+                    int speedValue, int attackValue, int posX, int posY) {
         this.maxHP = maxHpValue;
         this.hp = maxHpValue;
         this.team = teamValue;
         this.armor = armorValue;
         this.minDamage = minDamageValue;
         this.maxDamage = maxDamageValue;
-        this.name = unitname;
+        this.name = createName();
         this.speed = speedValue;
         coords = new Vector2D(posX, posY);
         state = "Stand";
@@ -46,7 +46,7 @@ public abstract class Base_unit implements Interface {
         name = createName();
     }
 
-    public String createName() {
+    public static String createName() {
         return String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
     }
 

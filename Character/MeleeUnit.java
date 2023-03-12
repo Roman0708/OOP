@@ -3,23 +3,17 @@ import java.util.Random;
 
 import Character.Names.MeleeNick;
 
-public abstract class MeleeUnit extends Base_unit {   // Пока не придумал чем они будут отличатся от остальных
+public abstract class MeleeUnit extends Base_unit {
 
     protected int damageModifyer;
 
     public MeleeUnit () {
-        super.name += " " + this.getMeleeNick();
+        super.name = MeleeUnit.getMeleeNick();
     };
 
-    public int attack(Base_unit name) {
-
-        int damageGiven = super.damage/name.armor + this.damageModifyer;
-        return damageGiven;
-
-    }
-
-    private String getMeleeNick() {
-        return String.valueOf(MeleeNick.values()[new Random().nextInt(MeleeNick.values().length-1)]);
+    public static String getMeleeNick() {
+        String name = createName() + String.valueOf(MeleeNick.values()[new Random().nextInt(MeleeNick.values().length-1)]);
+        return name;
     }
     
 }

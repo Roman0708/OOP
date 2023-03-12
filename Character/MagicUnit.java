@@ -7,12 +7,12 @@ public abstract class MagicUnit extends Base_unit {
     protected int currentMana, maxMana, healCost, healPower;
 
     public MagicUnit() {
-        super.name += " " + this.getMagicNick();
+        super.name = MagicUnit.getMagicNick();
     }
 
 
     // Amount of heal equal to -damage, so it will be used in getDamage
-    public int heal (Base_unit name) {
+    public float heal (Base_unit name) {
         this.currentMana -= this.healCost;
         if (name.maxHP-name.hp >= this.healPower) {
             return -(name.maxHP-name.hp);
@@ -20,8 +20,9 @@ public abstract class MagicUnit extends Base_unit {
         else return -this.healPower;
     }
 
-    public String getMagicNick() {
-        return String.valueOf(MagicNick.values()[new Random().nextInt(MagicNick.values().length-1)]);
+    public static String getMagicNick() {
+        String name = createName() + String.valueOf(MagicNick.values()[new Random().nextInt(MagicNick.values().length-1)]);
+        return name;
     }
 
 }

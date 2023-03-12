@@ -5,17 +5,17 @@ public class Villager extends Base_unit {
     protected int ammo;
 
      public Villager(int maxHpValue, boolean teamValue, int armorValue, int minDamageValue, int maxDamageValue, 
-     String unitname, int speedValue, int attackValue, int posX, int posY, int ammo) {
+     int speedValue, int attackValue, int posX, int posY, int ammo) {
          super(maxHpValue, teamValue, armorValue, minDamageValue, maxDamageValue, 
-         unitname, speedValue, attackValue, posX, posY);
+         speedValue, attackValue, posX, posY);
 
          this.ammo = ammo;
-         super.name = super.getName();
+         super.name = Base_unit.createName();
      }
 
     public Villager(String name, Vector2D coords) {
         super(50, true, 1, 1, 
-        1, name, 3, 1, coords.posX, coords.posY);
+        1, 3, 1, coords.posX, coords.posY);
         this.ammo = 1;
     }
 
@@ -33,7 +33,7 @@ public class Villager extends Base_unit {
         return builder.append("Крестьянин: \t").append(Villager.super.name)
                 .append("\t| ATK:\t").append(Villager.super.attack)
                 .append("\t| HP:\t").append(Villager.super.hp)
-                .append(" \t| Arrows: ").append(Villager.this.ammo)
+                .append(" \t| Ammo: ").append(Villager.this.ammo)
                 .append("\t|").append("\t| (X.Y) : ").append(Villager.super.coords.posX).append(".").append(Villager.super.coords.posY);
     }
 
