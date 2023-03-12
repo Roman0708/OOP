@@ -2,24 +2,20 @@ package Character;
 
 public class Crossbowman extends RangeUnit {
 
-    public Crossbowman() {
-
-
-        speed = 4;
-        super.rangeAttack = 30;
-        super.damage = 30;
-        super.ammo = 20;
-        damageModifyer = 20;
-        ammoOut = 1;
-        super.armor = 10;
-        super.team = true;
-        super.unitType = "Арбалетчик";
+    public Crossbowman(String name, Vector2D coords) {
+        super(10, false, 3, 2, 
+        3, 4, 6, coords.posX, coords.posY, 10, 16);
 
     }
 
     @Override
-    public String getInfo() {
-        return ("Я арбалетчик " + super.getName());
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Арбалетчик:\t").append(Crossbowman.super.name)
+                .append("\t| ATK:\t").append(Crossbowman.super.attack)
+                .append("\t| HP:\t").append(Crossbowman.super.hp)
+                .append(" \t| Arrows:").append(Crossbowman.super.ammo)
+                .append("\t|").append("\t| (X.Y) : ").append(Crossbowman.super.coords.posX).append(".").append(Crossbowman.super.coords.posY);
     }
 
 }

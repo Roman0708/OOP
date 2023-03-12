@@ -1,5 +1,7 @@
 package Character;
 
+import java.util.ArrayList;
+
 public class Villager extends Base_unit {
 
     protected int ammo;
@@ -27,6 +29,15 @@ public class Villager extends Base_unit {
     public void setAmmoVillager (int ammo) {
         this.ammo = ammo;
     }
+
+    @Override
+    public void step(ArrayList<Base_unit> team1, ArrayList<Base_unit> team2) {
+        if (!state.equals("Die")) {
+            state = "Stand";
+        }
+    }
+
+
     @Override
     public StringBuilder getInfo() {
         StringBuilder builder = new StringBuilder();
