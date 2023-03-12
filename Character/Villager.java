@@ -1,31 +1,40 @@
 package Character;
 
-public class Villager extends UnitWithAmmo {
+public class Villager extends Base_unit {
 
-     public void giveAmmo(UnitWithAmmo name, int itemValue) {          //Only Villager can bring ammo to each other
+    protected int ammo;
 
+     public Villager(int maxHpValue, boolean teamValue, int armorValue, int minDamageValue, int maxDamageValue, 
+     String unitname, int speedValue, int attackValue, int posX, int posY, int ammo) {
+         super(maxHpValue, teamValue, armorValue, minDamageValue, maxDamageValue, 
+         unitname, speedValue, attackValue, posX, posY);
+
+         this.ammo = ammo;
+         super.name = super.getName();
      }
 
-     public Villager() {
-        super.speed = 3;
-        super.unitType = "Крестьянин";
-     }
-
-    public Villager(boolean teamValue) {
-        this();
-        team = teamValue;
+    public Villager(String name, Vector2D coords) {
+        super(50, true, 1, 1, 
+        1, name, 3, 1, coords.posX, coords.posY);
+        this.ammo = 1;
     }
 
-     public boolean pickAmmoOnBase() {
-        if (super.getPositionX() == 0 & super.getPositionY() == 0 & super.takeAmmo(50) == true) {        //Villager can pick ammo on base
-            return true;
-        }
-        else return false;
-     }
+    protected void armiger(RangeUnit rangeUnit){  }
 
-     @Override
-    public String getInfo() {
-        return ("Я крестьянин " + super.getName());
+    public int getAmmoVillager () {
+        return this.ammo;
+    }
+    public void setAmmoVillager (int ammo) {
+        this.ammo = ammo;
+    }
+    @Override
+    public StringBuilder getInfo() {
+        StringBuilder builder = new StringBuilder();
+        return builder.append("Крестьянин: \t").append(Villager.super.name)
+                .append("\t| ATK:\t").append(Villager.super.attack)
+                .append("\t| HP:\t").append(Villager.super.hp)
+                .append(" \t| Arrows: ").append(Villager.this.ammo)
+                .append("\t|").append("\t| (X.Y) : ").append(Villager.super.coords.posX).append(".").append(Villager.super.coords.posY);
     }
 
 }

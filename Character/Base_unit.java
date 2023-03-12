@@ -60,7 +60,7 @@ public abstract class Base_unit implements Interface {
     protected void getDamage(float damage){
         hp -= damage;
         if (hp > maxHP) hp = maxHP;
-        if (hp < 0) state = "Die";
+        if (hp < 0) state = "Dead";
     }
 
 
@@ -71,7 +71,7 @@ public abstract class Base_unit implements Interface {
         double min = 100;
         int index = 0;
         for (int i = 0; i < team.size(); i++) {
-            if(min > coords.getDistance(team.get(i).coords) & !team.get(i).state.equals("Die")) {
+            if(min > coords.getDistance(team.get(i).coords) & !team.get(i).state.equals("Dead")) {
                 index = i;
                 min = coords.getDistance(team.get(i).coords);
             }
