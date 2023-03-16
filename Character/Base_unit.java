@@ -7,7 +7,7 @@ import Character.Names.Names;
 
 public abstract class Base_unit implements Interface {
 
-    protected String name;
+    protected String name, unitType;
 
     protected int maxHP, armor, minDamage, maxDamage, attack, speed;
 
@@ -89,12 +89,12 @@ public abstract class Base_unit implements Interface {
 
     @Override
     public String toString() {
-        return name +
+        return unitType + " " + name +
                 " H:" + Math.round(hp) +
                 " D:" + armor +
                 " A:" + attack +
                 " Dmg:" + Math.round(Math.abs((minDamage+maxDamage)/2)) +
-                state;
+                " " + state;
     }
 
     public int[] getCoords() {return new int[]{coords.posX, coords.posY};}

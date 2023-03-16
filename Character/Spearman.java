@@ -4,6 +4,8 @@ public class Spearman extends MeleeUnit {
     public Spearman(String name, Vector2D coords) {
         super(10, true, 5, 1, 3, 
         4, 4, coords.posX, coords.posY);
+        this.name = name;
+        this.unitType = "Копейщик";
     }
 
     @Override

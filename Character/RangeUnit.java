@@ -17,7 +17,7 @@ public abstract class RangeUnit extends Base_unit {
 
         this.rangeAttack = rangeAttack;
         this.ammo = ammo;
-        super.name = RangeUnit.getRangeNick();
+        // super.name = RangeUnit.getRangeNick();
 
     };
 

@@ -5,6 +5,8 @@ public class Sniper extends RangeUnit {
     public Sniper(String name, Vector2D coords) {
         super(15, true, 10, 8, 10, 
         9, 12, coords.posX, coords.posY, 10, 32);
+        this.name = name;
+        this.unitType = "Снайпер";
     }
 
     @Override

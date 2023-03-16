@@ -5,7 +5,8 @@ public class Crossbowman extends RangeUnit {
     public Crossbowman(String name, Vector2D coords) {
         super(10, false, 3, 2, 
         3, 4, 6, coords.posX, coords.posY, 10, 16);
-
+        this.name = name;
+        this.unitType = "Арбалетчик";
     }
 
     @Override

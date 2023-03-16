@@ -5,6 +5,8 @@ public class Magician extends MagicUnit {
     public Magician(String name, Vector2D coords) {
         super(30, false, 12, -5, -5, 9, 17, 
         coords.posX, coords.posY, 30, 10, 10, 3);
+        this.name = name;
+        this.unitType = "Колдун";
     }
 
     @Override

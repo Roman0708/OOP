@@ -16,6 +16,8 @@ public abstract class MagicUnit extends Base_unit {
         this.healPower = healPowervalue;
         this.manaRegen = manaRegenValue;
         this.healCost = healCostValue;
+
+        // super.name = MagicUnit.getMagicNick();
     }
 
 

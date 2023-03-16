@@ -13,12 +13,14 @@ public class Villager extends Base_unit {
 
          this.ammo = ammo;
          super.name = Base_unit.createName();
+         
      }
 
     public Villager(String name, Vector2D coords) {
         super(50, true, 1, 1, 
         1, 3, 1, coords.posX, coords.posY);
         this.ammo = 1;
+        this.unitType = "Крестьянин";
     }
 
     protected void armiger(RangeUnit rangeUnit){  }
