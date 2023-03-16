@@ -28,7 +28,7 @@ public class View {
         String out = "| ";
         for (Base_unit Base_unit: Main.allTeam) {
             if (Base_unit.getCoords()[0] == x && Base_unit.getCoords()[1] == y){
-                if (Base_unit.getHp() == 0) {
+                if (Base_unit.getHp() <= 0) {
                     out = "|" + (AnsiColors.ANSI_RED + Base_unit.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                     break;
                 }
@@ -57,9 +57,9 @@ public class View {
             System.out.print(getChar(1, i));
         }
         System.out.print("|    ");
-        System.out.print(Main.darkTeam.get(0));
-        tabSetter(Main.darkTeam.get(0).toString().length(), l[0]);
-        System.out.println(Main.holyTeam.get(0));
+        System.out.print(Main.holyTeam.get(0));
+        tabSetter(Main.holyTeam.get(0).toString().length(), l[0]);
+        System.out.println(Main.darkTeam.get(0));
         System.out.println(midl10);
 
         for (int i = 2; i < 9; i++) {
@@ -67,18 +67,18 @@ public class View {
                 System.out.print(getChar(i, j));
             }
             System.out.print("|    ");
-            System.out.print(Main.darkTeam.get(i-1));
-            tabSetter(Main.darkTeam.get(i-1).toString().length(), l[0]);
-            System.out.println(Main.holyTeam.get(i-1));
+            System.out.print(Main.holyTeam.get(i-1));
+            tabSetter(Main.holyTeam.get(i-1).toString().length(), l[0]);
+            System.out.println(Main.darkTeam.get(i-1));
             System.out.println(midl10);
         }
         for (int j = 1; j < 11; j++) {
             System.out.print(getChar(10, j));
         }
         System.out.print("|    ");
-        System.out.print(Main.darkTeam.get(9));
-        tabSetter(Main.darkTeam.get(9).toString().length(), l[0]);
-        System.out.println(Main.holyTeam.get(9));
+        System.out.print(Main.holyTeam.get(9));
+        tabSetter(Main.holyTeam.get(9).toString().length(), l[0]);
+        System.out.println(Main.darkTeam.get(9));
         System.out.println(bottom10);
     }
 }
