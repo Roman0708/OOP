@@ -29,7 +29,7 @@ public abstract class MagicUnit extends Base_unit {
     }
 
     public static String getMagicNick() {
-        String name = createName() + String.valueOf(MagicNick.values()[new Random().nextInt(MagicNick.values().length-1)]);
+        String name = createName() + " " + String.valueOf(MagicNick.values()[new Random().nextInt(MagicNick.values().length-1)]);
         return name;
     }
 

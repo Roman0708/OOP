@@ -87,7 +87,17 @@ public abstract class Base_unit implements Interface {
         return new StringBuilder();
     }
 
+    @Override
+    public String toString() {
+        return name +
+                " H:" + Math.round(hp) +
+                " D:" + armor +
+                " A:" + attack +
+                " Dmg:" + Math.round(Math.abs((minDamage+maxDamage)/2)) +
+                state;
+    }
 
+    public int[] getCoords() {return new int[]{coords.posX, coords.posY};}
 
 }
 

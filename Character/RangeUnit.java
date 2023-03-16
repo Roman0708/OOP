@@ -41,7 +41,7 @@ public abstract class RangeUnit extends Base_unit {
     }
 
     public static String getRangeNick() {
-        String name = createName() + String.valueOf(RangeNick.values()[new Random().nextInt(RangeNick.values().length-1)]);
+        String name = createName() + " " + String.valueOf(RangeNick.values()[new Random().nextInt(RangeNick.values().length-1)]);
         return name;
     }
     
