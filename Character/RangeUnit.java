@@ -23,7 +23,7 @@ public abstract class RangeUnit extends Base_unit {
 
     @Override
     public void step(ArrayList<Base_unit> team1, ArrayList<Base_unit> team2) {
-        if (state.equals("Die") || ammo == 0) return;
+        if (state.equals("Dead") || ammo == 0) return;
         int target = findNearest(team2);
         float damage = (team2.get(target).armor - attack > 0) ? 
             minDamage : (team2.get(target).armor - attack < 0) ? 
