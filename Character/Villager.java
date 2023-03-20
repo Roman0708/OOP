@@ -34,7 +34,7 @@ public class Villager extends Base_unit {
 
     @Override
     public void step(ArrayList<Base_unit> team1, ArrayList<Base_unit> team2) {
-        if (!state.equals("Die")) {
+        if (!state.equals("Dead")) {
             state = "Stand";
         }
     }

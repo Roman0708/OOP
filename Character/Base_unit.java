@@ -63,7 +63,7 @@ public abstract class Base_unit implements Interface {
         if (hp < 0) state = "Dead";
     }
 
-
+    
     @Override
     public void step(ArrayList<Base_unit> team1, ArrayList<Base_unit> team2) { }
 
@@ -91,7 +91,7 @@ public abstract class Base_unit implements Interface {
     public String toString() {
         return unitType + " " + name +
                 " H:" + Math.round(hp) +
-                " D:" + armor +
+                " D:" + armor + "("+ coords.posY + ")"+
                 " A:" + attack +
                 " Dmg:" + Math.round(Math.abs((minDamage+maxDamage)/2)) +
                 " " + state;

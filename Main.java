@@ -16,7 +16,6 @@ import Character.Spearman;
 import Character.Vector2D;
 import Character.Villager;
 
-
 public class Main {
 
     static final int UNITS = 10;
@@ -34,15 +33,33 @@ public class Main {
             sortTeam(allTeam);
 
             while (true){
+                // boolean game = true;
                 View.view();
                 user_input.nextLine();
                 for (Base_unit base_unit: allTeam) {
-                    if (holyTeam.contains(base_unit)) base_unit.step(holyTeam, darkTeam);
-                    else base_unit.step(darkTeam, holyTeam);
+                        if (holyTeam.contains(base_unit)) base_unit.step(holyTeam, darkTeam);
+                        else base_unit.step(darkTeam, holyTeam);
                 }
+
+                if (!endGame(holyTeam) || !endGame(darkTeam)) break;
             }
         }
     }
+
+    public static boolean endGame(ArrayList<Base_unit> team) {
+        String teamname = (team == holyTeam) ? "Dark team" : "Holy team";
+        boolean game = true;
+        int cnt = 0;
+        for (int i = 0; i < UNITS; i++) if (team.get(i).getHp() > 0) cnt += 1;
+            
+        if (cnt==0) 
+        {
+            System.out.println(teamname + " Won!");
+            game = false;
+        }
+        return game;
+    }
+
     static void createTeam (ArrayList<Base_unit> team, int offset, int posY) {
         for (int i = 0; i < UNITS; i++) {
             int rnd = new Random().nextInt(4)+offset;
@@ -70,11 +87,7 @@ public class Main {
                     break;
             }
         }
-    }
-
-    
-
-    
+    }    
 
     static void sortTeam (ArrayList<Base_unit> team){
         team.sort(new Comparator<Base_unit>() {
